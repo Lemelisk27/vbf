@@ -3,6 +3,7 @@ const Role = require("./Role")
 const Client = require("./Client")
 const Animal = require("./Animal")
 const Species = require("./Species")
+const Breed = require("./Breed")
 
 User.belongsTo(Role)
 
@@ -18,10 +19,21 @@ Species.hasMany(Animal)
 
 Animal.belongsTo(Species)
 
+Species.hasMany(Breed,{
+    onDelete: "CASCADE"
+})
+
+Breed.hasMany(Animal)
+
+Animal.belongsTo(Breed)
+
+Breed.belongsTo(Species)
+
 module.exports={
     User,
     Role,
     Client,
     Animal,
-    Species
+    Species,
+    Breed
 }
