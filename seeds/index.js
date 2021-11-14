@@ -2,6 +2,7 @@ const seedUsers = require("./user-seeds")
 const seedRoles = require("./role-seeds")
 const seedClients = require("./client-seeds")
 const seedAnimals = require("./animal-seeds")
+const seedSpecies = require("./species-seeds")
 
 const sequelize = require("../config/connection")
 
@@ -14,6 +15,8 @@ const seedAll = async () => {
     console.log('\n-----USERS SYNCED-----\n')
     await seedClients()
     console.log('\n-----CLIENTS SYNCED-----\n')
+    await seedSpecies()
+    console.log('\n-----SPECIES SYNCED-----\n')
     await seedAnimals()
     console.log('\n-----ANIMALS SYNCED-----\n')
     process.exit(0)
