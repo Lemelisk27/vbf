@@ -1,14 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const {Client,Animal} = require("../../models")
+const {Animal} = require("../../models")
 const sequelize = require('../../config/connection')
 
 router.get("/",(req,res)=>{
-    Client.findAll({
-        include:[Animal]
-    })
-    .then(clientData=>{
-        res.json(clientData)
+    Animal.findAll()
+    .then(animalData=>{
+        res.json(animalData)
     })
     .catch(err=>{
         console.log(err)
