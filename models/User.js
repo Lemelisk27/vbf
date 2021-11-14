@@ -47,7 +47,7 @@ User.init({
         }
     },
     sequelize,
-    timestamps: false,
+    timestamps: false
 })
 
 module.exports=User

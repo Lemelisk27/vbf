@@ -2,35 +2,45 @@ const {User} = require("../models")
 
 const userData = [
     {
+        id: 1,
         first_name: "Claudia",
         last_name: "Fuller",
         username: "cfuller",
         password: "password",
-        admin: true
+        admin: true,
+        RoleId: 1
     },
     {
+        id: 2,
         first_name: "Tue",
         last_name: "Pohl",
         username: "tpohl",
-        password: "password"
+        password: "password",
+        RoleId: 2
     },
     {
+        id: 3,
         first_name: "Aberash",
         last_name: "Janssens",
         username: "ajanssens",
-        password: "password"
+        password: "password",
+        RoleId: 2
     },
     {
+        id: 4,
         first_name: "Themba",
         last_name: "Trucco",
         username: "ttrucco",
-        password: "password"
+        password: "password",
+        RoleId: 2
     },
     {
+        id: 5,
         first_name: "Hana",
         last_name: "Marston",
         username: "hmarston",
-        password: "password"
+        password: "password",
+        RoleId: 3
     }
 ]
 
