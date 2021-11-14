@@ -1,6 +1,5 @@
 const express = require('express');
 const sequelize = require("./config/connection")
-const {User} = require("./models")
 const routes = require("./controllers")
 
 const app = express();

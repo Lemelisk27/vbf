@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const {Role} = require("../../models")
+const {Client} = require("../../models")
 const sequelize = require('../../config/connection')
 
 router.get("/",(req,res)=>{
-    Role.findAll()
-    .then(roleData=>{
-        res.json(roleData)
+    Client.findAll()
+    .then(clientData=>{
+        res.json(clientData)
     })
     .catch(err=>{
         console.log(err)
