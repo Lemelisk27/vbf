@@ -13,7 +13,8 @@ const clientData = [
         work: "425-555-1234",
         home: "425-555-1235",
         cell: "425-555-1236",
-        alt: "425-555-1237"
+        alt: "425-555-1237",
+        ClinicId: 1
     },
     {
         id: 2,
@@ -26,7 +27,8 @@ const clientData = [
         email: "Sheona@Monk.com",
         home: "425-555-1235",
         cell: "425-555-1236",
-        alt: "425-555-1237"
+        alt: "425-555-1237",
+        ClinicId: 1
     },
     {
         id: 3,
@@ -38,7 +40,8 @@ const clientData = [
         zip: "98045",
         email: "Umukoro@Northrop.com",
         cell: "425-555-1236",
-        alt: "425-555-1237"
+        alt: "425-555-1237",
+        ClinicId: 1
     },
     {
         id: 4,
@@ -50,7 +53,8 @@ const clientData = [
         zip: "98045",
         email: "Edan@Howell.com",
         home: "425-555-1235",
-        alt: "425-555-1237"
+        alt: "425-555-1237",
+        ClinicId: 1
     },
     {
         id: 5,
@@ -63,7 +67,8 @@ const clientData = [
         email: "Martin@Petersson.com",
         work: "425-555-1234",
         cell: "425-555-1236",
-        alt: "425-555-1237"
+        alt: "425-555-1237",
+        ClinicId: 1
     },
     {
         id: 6,
@@ -76,7 +81,8 @@ const clientData = [
         email: "Bronimir@Schuchardt.com",
         work: "425-555-1234",
         home: "425-555-1235",
-        alt: "425-555-1237"
+        alt: "425-555-1237",
+        ClinicId: 1
     },
     {
         id: 7,
@@ -89,7 +95,8 @@ const clientData = [
         email: "Elsie@Victor.com",
         work: "425-555-1234",
         home: "425-555-1235",
-        cell: "425-555-1236"
+        cell: "425-555-1236",
+        ClinicId: 1
     },
     {
         id: 8,
@@ -102,7 +109,8 @@ const clientData = [
         email: "Africanus@Broz.com",
         work: "425-555-1234",
         home: "425-555-1235",
-        alt: "425-555-1237"
+        alt: "425-555-1237",
+        ClinicId: 1
     },
     {
         id: 9,
@@ -115,7 +123,8 @@ const clientData = [
         email: "Milda@Gottlieb.com",
         work: "425-555-1234",
         cell: "425-555-1236",
-        alt: "425-555-1237"
+        alt: "425-555-1237",
+        ClinicId: 1
     },
     {
         id: 10,
@@ -128,7 +137,8 @@ const clientData = [
         email: "Artemidoros@Karga.com",
         home: "425-555-1235",
         cell: "425-555-1236",
-        alt: "425-555-1237"
+        alt: "425-555-1237",
+        ClinicId: 1
     }
 ]
 

@@ -8,7 +8,8 @@ const userData = [
         username: "cfuller",
         password: "password",
         admin: true,
-        RoleId: 1
+        RoleId: 1,
+        ClinicId: 1
     },
     {
         id: 2,
@@ -16,7 +17,8 @@ const userData = [
         last_name: "Pohl",
         username: "tpohl",
         password: "password",
-        RoleId: 2
+        RoleId: 2,
+        ClinicId: 1
     },
     {
         id: 3,
@@ -24,7 +26,8 @@ const userData = [
         last_name: "Janssens",
         username: "ajanssens",
         password: "password",
-        RoleId: 2
+        RoleId: 2,
+        ClinicId: 1
     },
     {
         id: 4,
@@ -32,7 +35,8 @@ const userData = [
         last_name: "Trucco",
         username: "ttrucco",
         password: "password",
-        RoleId: 2
+        RoleId: 2,
+        ClinicId: 1
     },
     {
         id: 5,
@@ -40,7 +44,8 @@ const userData = [
         last_name: "Marston",
         username: "hmarston",
         password: "password",
-        RoleId: 3
+        RoleId: 3,
+        ClinicId: 1
     }
 ]
 

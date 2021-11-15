@@ -1,15 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const {User,Role,Clinic} = require("../../models")
+const {Clinic} = require("../../models")
 const sequelize = require('../../config/connection')
-const bcrypt = require("bcrypt")
 
 router.get("/",(req,res)=>{
-    User.findAll({
-        include:[Role, Clinic]
-    })
-    .then(userData=>{
-        res.json(userData)
+    Clinic.findAll()
+    .then(clinicData=>{
+        res.json(clinicData)
     })
     .catch(err=>{
         console.log(err)
