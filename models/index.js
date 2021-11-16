@@ -7,6 +7,7 @@ const Breed = require("./Breed")
 const Clinic = require("./Clinic")
 const Allergy = require("./Allergy")
 const Allergyjoins = require("./AllergyJoins")
+const Inventory = require("./Inventory")
 
 User.belongsTo(Role)
 
@@ -52,6 +53,10 @@ Allergy.belongsToMany(Animal, {
     otherKey: "AnimalId"
 })
 
+Clinic.hasOne(Inventory)
+
+Inventory.belongsTo(Clinic)
+
 module.exports={
     User,
     Role,
@@ -61,5 +66,6 @@ module.exports={
     Breed,
     Clinic,
     Allergy,
-    Allergyjoins
+    Allergyjoins,
+    Inventory
 }

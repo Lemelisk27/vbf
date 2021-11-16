@@ -12,7 +12,8 @@ const animalData = [
         gender: "Spayed Female",
         marks: "Brown heart on left shoulder",
         description: "Good Doggie",
-        img: "https://res.cloudinary.com/coder-mingle/image/upload/v1637018311/portfolio/Spinone-3-5-2_tntb4w.jpg"
+        img: "https://res.cloudinary.com/coder-mingle/image/upload/v1637018311/portfolio/Spinone-3-5-2_tntb4w.jpg",
+        warn: true
     },
     {
         id: 2,
@@ -24,7 +25,8 @@ const animalData = [
         color: "Light Grey",
         gender: "Male",
         description: "Good Doggie",
-        img: "https://res.cloudinary.com/coder-mingle/image/upload/v1637018526/portfolio/Skye-Terrier-1-645mk062811_cgsuvf.jpg"
+        img: "https://res.cloudinary.com/coder-mingle/image/upload/v1637018526/portfolio/Skye-Terrier-1-645mk062811_cgsuvf.jpg",
+        warn: true
     },
     {
         id: 3,
@@ -49,7 +51,8 @@ const animalData = [
         color: "Orange",
         gender: "Nutered Male",
         description: "Here Kitty Kitty",
-        img: "https://res.cloudinary.com/coder-mingle/image/upload/v1637018763/portfolio/european-burmese-cats-kittens-1_jubdua.png"
+        img: "https://res.cloudinary.com/coder-mingle/image/upload/v1637018763/portfolio/european-burmese-cats-kittens-1_jubdua.png",
+        warn: true
     },
     {
         id: 5,
@@ -62,7 +65,8 @@ const animalData = [
         gender: "Female",
         marks: "Black spots on head",
         description: "Good Lizzard",
-        img: "https://res.cloudinary.com/coder-mingle/image/upload/v1637018857/portfolio/leopard-geckos-1236911-01-20aac80501f241f593afcaa7c835de33_usjpaz.jpg"
+        img: "https://res.cloudinary.com/coder-mingle/image/upload/v1637018857/portfolio/leopard-geckos-1236911-01-20aac80501f241f593afcaa7c835de33_usjpaz.jpg",
+        warn: true
     },
     {
         id: 6,
@@ -112,7 +116,8 @@ const animalData = [
         gender: "Nutered Male",
         marks: "Blue Eyes",
         description: "Here Kitty Kitty",
-        img: "https://res.cloudinary.com/coder-mingle/image/upload/v1637019297/portfolio/Snowshoe-cat_oegw2c.jpg"
+        img: "https://res.cloudinary.com/coder-mingle/image/upload/v1637019297/portfolio/Snowshoe-cat_oegw2c.jpg",
+        warn: true
     },
     {
         id: 10,
@@ -149,7 +154,8 @@ const animalData = [
         color: "Redish Brown",
         gender: "Spayed Female",
         description: "Good Doggie",
-        img: "https://res.cloudinary.com/coder-mingle/image/upload/v1637019616/portfolio/download_2_hkckzj.jpg"
+        img: "https://res.cloudinary.com/coder-mingle/image/upload/v1637019616/portfolio/download_2_hkckzj.jpg",
+        warn: true
     },
     {
         id: 13,

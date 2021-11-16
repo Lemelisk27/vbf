@@ -28,6 +28,11 @@ Animal.init({
     },
     img: {
         type: DataTypes.TEXT
+    },
+    warn: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
     }
 },
 {
