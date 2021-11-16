@@ -5,6 +5,8 @@ const Animal = require("./Animal")
 const Species = require("./Species")
 const Breed = require("./Breed")
 const Clinic = require("./Clinic")
+const Allergy = require("./Allergy")
+const Allergyjoins = require("./AllergyJoins")
 
 User.belongsTo(Role)
 
@@ -38,6 +40,18 @@ Clinic.hasMany(Client)
 
 Client.belongsTo(Clinic)
 
+Animal.belongsToMany(Allergy,{
+    through: Allergyjoins,
+    foreignKey: "AnimalId",
+    otherKey: "AllergyId"
+})
+
+Allergy.belongsToMany(Animal, {
+    through: Allergyjoins,
+    foreignKey: "AllergyId",
+    otherKey: "AnimalId"
+})
+
 module.exports={
     User,
     Role,
@@ -45,5 +59,7 @@ module.exports={
     Animal,
     Species,
     Breed,
-    Clinic
+    Clinic,
+    Allergy,
+    Allergyjoins
 }

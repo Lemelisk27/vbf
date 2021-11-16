@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const {Animal,Species,Breed} = require("../../models")
+const {Animal,Species,Breed,Allergy} = require("../../models")
 const sequelize = require('../../config/connection')
 
 router.get("/",(req,res)=>{
     Animal.findAll({
-        include:[Species,Breed]
+        include:[Species,Breed,Allergy]
     })
     .then(animalData=>{
         res.json(animalData)

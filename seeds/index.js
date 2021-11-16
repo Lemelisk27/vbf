@@ -5,6 +5,8 @@ const seedAnimals = require("./animal-seeds")
 const seedSpecies = require("./species-seeds")
 const seedBreeds = require("./breed-seeds")
 const seedClinics = require("./clinic-seeds")
+const seedAllergies = require("./allergy-seeds")
+const seedAllergyjoins = require("./allergyjoins-seeds")
 
 const sequelize = require("../config/connection")
 
@@ -25,6 +27,10 @@ const seedAll = async () => {
     console.log('\n-----BREEDS SYNCED-----\n')
     await seedAnimals()
     console.log('\n-----ANIMALS SYNCED-----\n')
+    await seedAllergies()
+    console.log('\n-----ALLERGIES SYNCED-----\n')
+    await seedAllergyjoins()
+    console.log('\n-----ALLERGY JOINS SYNCED-----\n')
     process.exit(0)
 }
 
