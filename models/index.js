@@ -8,6 +8,9 @@ const Clinic = require("./Clinic")
 const Allergy = require("./Allergy")
 const Allergyjoins = require("./AllergyJoins")
 const Inventory = require("./Inventory")
+const Unit = require("./Unit")
+const Inventoryitems = require("./InventoryItems")
+const Inventoryjoin = require("./Inventoryjoin")
 
 User.belongsTo(Role)
 
@@ -57,6 +60,22 @@ Clinic.hasOne(Inventory)
 
 Inventory.belongsTo(Clinic)
 
+Unit.hasMany(Inventoryitems)
+
+Inventoryitems.belongsTo(Unit)
+
+Inventory.belongsToMany(Inventoryitems,{
+    through: Inventoryjoin,
+    foreignKey: "InventoryId",
+    otherKey: "InventoryitemsId"
+})
+
+Inventoryitems.belongsToMany(Inventory, {
+    through: Inventoryjoin,
+    foreignKey: "InventoryitemsId",
+    otherKey: "InventoryId"
+})
+
 module.exports={
     User,
     Role,
@@ -67,5 +86,8 @@ module.exports={
     Clinic,
     Allergy,
     Allergyjoins,
-    Inventory
+    Inventory,
+    Unit,
+    Inventoryitems,
+    Inventoryjoin
 }

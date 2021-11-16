@@ -8,6 +8,9 @@ const seedClinics = require("./clinic-seeds")
 const seedAllergies = require("./allergy-seeds")
 const seedAllergyjoins = require("./allergyjoins-seeds")
 const seedInventory = require("./inventory-seeds")
+const seedUnits = require("./unit-seeds")
+const seedInventoryItems = require("./Inventoryitems-seeds")
+const seedInventoryJoin = require("./inventoryjoin-seeds")
 
 const sequelize = require("../config/connection")
 
@@ -32,8 +35,14 @@ const seedAll = async () => {
     console.log('\n-----ALLERGIES SYNCED-----\n')
     await seedAllergyjoins()
     console.log('\n-----ALLERGY JOINS SYNCED-----\n')
+    await seedUnits()
+    console.log('\n-----UNITS SYNCED-----\n')
     await seedInventory()
     console.log('\n-----INVENTORY SYNCED-----\n')
+    await seedInventoryItems()
+    console.log('\n-----INVENTORY ITEMS SYNCED-----\n')
+    await seedInventoryJoin()
+    console.log('\n-----INVENTORY JOINS SYNCED-----\n')
     process.exit(0)
 }
 
