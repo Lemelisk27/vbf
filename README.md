@@ -10,6 +10,7 @@ A vet management app
 ## Installation
 Required Dependencies:
 - Bcrypt
+- Compression
 - Express
 - Dotenv
 - Mysql2
