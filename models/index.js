@@ -14,7 +14,7 @@ const Inventoryjoin = require("./Inventoryjoin")
 
 User.belongsTo(Role)
 
-Role.hasOne(User)
+Role.hasMany(User)
 
 Client.hasMany(Animal,{
     onDelete: "CASCADE"

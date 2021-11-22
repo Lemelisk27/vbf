@@ -16,7 +16,7 @@ Required Dependencies:
 - Mysql2
 - Sequelize
 ## Usage
-Link will go here: Under Construction  
+Website - [Vet's Best Friend](https://vetbestfriend.herokuapp.com/)
 ## Credits
 Zach Smith - [GitHub Profile](https://github.com/Lemelisk27@gmail.com)  
 ## License
