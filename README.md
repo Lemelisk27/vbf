@@ -1,4 +1,4 @@
-# Vet's Best Friend (VBF)
+# Vet's Best Friend (VBF) - Back End
 ![license badge](https://img.shields.io/badge/license-MIT-blue)
 ## Description
 A vet management app
@@ -16,7 +16,8 @@ Required Dependencies:
 - Mysql2
 - Sequelize
 ## Usage
-Website - [Vet's Best Friend](https://vetbestfriend.herokuapp.com/)
+Back End Site [Vet's Best Friend API](https://vetbestfriend-back.herokuapp.com/)
+Front End Site - [Vet's Best Friend](https://vetbestfriend.herokuapp.com/)
 ## Credits
 Zach Smith - [GitHub Profile](https://github.com/Lemelisk27@gmail.com)  
 ## License
