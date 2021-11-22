@@ -6,7 +6,8 @@ class Allergy extends Model {}
 Allergy.init({
     alergy_name: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        unique: true
     }
 },
 {

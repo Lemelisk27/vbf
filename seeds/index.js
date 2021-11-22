@@ -11,6 +11,7 @@ const seedInventory = require("./inventory-seeds")
 const seedUnits = require("./unit-seeds")
 const seedInventoryItems = require("./Inventoryitems-seeds")
 const seedInventoryJoin = require("./inventoryjoin-seeds")
+const seedApiUsers = require("./apiuser-seeds")
 
 const sequelize = require("../config/connection")
 
@@ -43,6 +44,8 @@ const seedAll = async () => {
     console.log('\n-----INVENTORY ITEMS SYNCED-----\n')
     await seedInventoryJoin()
     console.log('\n-----INVENTORY JOINS SYNCED-----\n')
+    await seedApiUsers()
+    console.log('\n-----API USERS SYNCED-----\n')
     process.exit(0)
 }
 

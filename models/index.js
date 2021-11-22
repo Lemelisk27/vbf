@@ -11,6 +11,7 @@ const Inventory = require("./Inventory")
 const Unit = require("./Unit")
 const Inventoryitems = require("./InventoryItems")
 const Inventoryjoin = require("./Inventoryjoin")
+const Apiuser = require("./ApiUser")
 
 User.belongsTo(Role)
 
@@ -89,5 +90,6 @@ module.exports={
     Inventory,
     Unit,
     Inventoryitems,
-    Inventoryjoin
+    Inventoryjoin,
+    Apiuser
 }
