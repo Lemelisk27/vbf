@@ -1,7 +1,7 @@
 # Vet's Best Friend (VBF) - Back End
 ![license badge](https://img.shields.io/badge/license-MIT-blue)
 ## Description
-A vet management app
+A vet management app back end
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
@@ -11,7 +11,9 @@ A vet management app
 Required Dependencies:
 - Bcrypt
 - Compression
+- CORS
 - Express
+- Jsonwebtoken
 - Dotenv
 - Mysql2
 - Sequelize

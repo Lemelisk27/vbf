@@ -3,6 +3,7 @@ const router = express.Router();
 const {User,Role,Clinic} = require("../../models")
 const sequelize = require('../../config/connection')
 const bcrypt = require("bcrypt")
+const jwt = require("jsonwebtoken")
 
 router.get("/",(req,res)=>{
     User.findAll({
