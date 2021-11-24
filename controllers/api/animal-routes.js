@@ -17,6 +17,47 @@ router.get("/",(req,res)=>{
     })
 })
 
+router.get("/species", tokenAuth, (req, res) => {
+    Species.findAll({
+        order: ["name"]
+    })
+    .then(speciesData=>{
+        if(speciesData) {
+            res.json(speciesData)
+        }
+        else {
+            res.status(404).json({Message: "No Species Found"})
+        }
+    })
+    .catch(err=>{
+        console.log(err),
+        res.status(500).json({Message: "An Error Occured", err:err})
+    })
+})
+
+router.get("/breeds", tokenAuth, (req, res) => {
+    Breed.findAll({
+        order: ["name"],
+        attributes: ["id", "name"],
+        include: [{
+            model: Species,
+            attributes: [["name", "species"]]
+        }]
+    })
+    .then(breedData=>{
+        if(breedData) {
+            res.json(breedData)
+        }
+        else {
+            res.status(404).json({Message: "No Breeds Found"})
+        }
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message:"An Error Occured", err:err})
+    })
+})
+
 router.get("/all", tokenAuth, (req, res) => {
     Animal.findAll({
         order: ["name"],
