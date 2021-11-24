@@ -34,25 +34,7 @@ Client.init({
             isEmail: true
         }
     },
-    work: {
-        type: DataTypes.STRING,
-        validate:{
-            len:[10]
-        }
-    },
-    home: {
-        type: DataTypes.STRING,
-        validate:{
-            len:[10]
-        }
-    },
-    cell: {
-        type: DataTypes.STRING,
-        validate:{
-            len:[10]
-        }
-    },
-    alt: {
+    phone: {
         type: DataTypes.STRING,
         validate:{
             len:[10]

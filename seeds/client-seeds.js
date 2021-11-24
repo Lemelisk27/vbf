@@ -10,10 +10,7 @@ const clientData = [
         state: "WA",
         zip: "98045",
         email: "Laxman@McIver.com",
-        work: "425-555-1234",
-        home: "425-555-1235",
-        cell: "425-555-1236",
-        alt: "425-555-1237",
+        phone: "425-555-1234",
         ClinicId: 1
     },
     {
@@ -25,9 +22,7 @@ const clientData = [
         state: "WA",
         zip: "98045",
         email: "Sheona@Monk.com",
-        home: "425-555-1235",
-        cell: "425-555-1236",
-        alt: "425-555-1237",
+        phone: "425-555-1235",
         ClinicId: 1
     },
     {
@@ -39,8 +34,7 @@ const clientData = [
         state: "WA",
         zip: "98045",
         email: "Umukoro@Northrop.com",
-        cell: "425-555-1236",
-        alt: "425-555-1237",
+        phone: "425-555-1236",
         ClinicId: 1
     },
     {
@@ -52,8 +46,7 @@ const clientData = [
         state: "WA",
         zip: "98045",
         email: "Edan@Howell.com",
-        home: "425-555-1235",
-        alt: "425-555-1237",
+        phone: "425-555-1235",
         ClinicId: 1
     },
     {
@@ -65,9 +58,7 @@ const clientData = [
         state: "WA",
         zip: "98045",
         email: "Martin@Petersson.com",
-        work: "425-555-1234",
-        cell: "425-555-1236",
-        alt: "425-555-1237",
+        phone: "425-555-1234",
         ClinicId: 1
     },
     {
@@ -79,9 +70,7 @@ const clientData = [
         state: "WA",
         zip: "98045",
         email: "Bronimir@Schuchardt.com",
-        work: "425-555-1234",
-        home: "425-555-1235",
-        alt: "425-555-1237",
+        phone: "425-555-1234",
         ClinicId: 1
     },
     {
@@ -93,9 +82,7 @@ const clientData = [
         state: "WA",
         zip: "98045",
         email: "Elsie@Victor.com",
-        work: "425-555-1234",
-        home: "425-555-1235",
-        cell: "425-555-1236",
+        phone: "425-555-1234",
         ClinicId: 1
     },
     {
@@ -107,9 +94,7 @@ const clientData = [
         state: "WA",
         zip: "98045",
         email: "Africanus@Broz.com",
-        work: "425-555-1234",
-        home: "425-555-1235",
-        alt: "425-555-1237",
+        phone: "425-555-1234",
         ClinicId: 1
     },
     {
@@ -121,9 +106,7 @@ const clientData = [
         state: "WA",
         zip: "98045",
         email: "Milda@Gottlieb.com",
-        work: "425-555-1234",
-        cell: "425-555-1236",
-        alt: "425-555-1237",
+        phone: "425-555-1234",
         ClinicId: 1
     },
     {
@@ -135,9 +118,7 @@ const clientData = [
         state: "WA",
         zip: "98045",
         email: "Artemidoros@Karga.com",
-        home: "425-555-1235",
-        cell: "425-555-1236",
-        alt: "425-555-1237",
+        phone: "425-555-1235",
         ClinicId: 1
     }
 ]
