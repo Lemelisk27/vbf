@@ -23,6 +23,18 @@ Clinic.init({
     zip: {
         type: DataTypes.STRING,
         allowNull: false
+    },
+    phone: {
+        type: DataTypes.STRING,
+        validate:{
+            len:[10]
+        }
+    },
+    email: {
+        type: DataTypes.STRING,
+        validate: {
+            isEmail: true
+        }
     }
 },
 {
