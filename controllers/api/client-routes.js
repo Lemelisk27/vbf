@@ -40,4 +40,25 @@ router.get("/all", tokenAuth, (req, res) => {
     })
 })
 
+router.post("/", tokenAuth, (req,res) => {
+    Client.create({
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        street: req.body.street,
+        city: req.body.city,
+        state: req.body.state,
+        zip: req.body.zip,
+        email: req.body.email,
+        phone: req.body.phone,
+        ClinicId: 1
+    })
+    .then(newClient=>{
+        res.json(newClient)
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message: "An Error Occured", err:err})
+    })
+})
+
 module.exports = router

@@ -99,7 +99,8 @@ router.post("/", tokenAuth, (req, res) => {
         description: req.body.description,
         ClientId: req.body.ClientId,
         SpeciesId: req.body.SpeciesId,
-        BreedId: req.body.BreedId
+        BreedId: req.body.BreedId,
+        ClinicId: 1
     })
     .then(newAnimal => {
         res.json(newAnimal)
