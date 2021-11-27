@@ -5,10 +5,10 @@ const compression = require("compression");
 const cors = require("cors")
 
 const app = express();
-app.use(cors())
-// app.use(cors({
-//     origin:["https://vetbestfriend.herokuapp.com"]
-// }))
+// app.use(cors())
+app.use(cors({
+    origin:["https://vetbestfriend.herokuapp.com"]
+}))
 const PORT = process.env.PORT || 3001;
 
 const { User, Role, Client, Animal, Species, Breed, Clinic, Allergy, Allergyjoins, Inventory, Unit, Inventoryitems, Inventoryjoin, Apiuser} = require("./models")

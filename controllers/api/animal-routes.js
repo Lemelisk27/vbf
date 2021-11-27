@@ -41,7 +41,7 @@ router.get("/breeds", tokenAuth, (req, res) => {
         attributes: ["id", "name"],
         include: [{
             model: Species,
-            attributes: [["name", "species"]]
+            attributes: ["id", ["name", "species"]]
         }]
     })
     .then(breedData=>{
@@ -82,6 +82,27 @@ router.get("/all", tokenAuth, (req, res) => {
         else {
             res.status(404).json({Message: "No Animals Found"})
         }
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message: "An Error Occured", err:err})
+    })
+})
+
+router.post("/", tokenAuth, (req, res) => {
+    Animal.create({
+        name: req.body.name,
+        birthdate: req.body.birthdate,
+        color: req.body.color,
+        gender: req.body.gender,
+        marks: req.body.marks,
+        description: req.body.description,
+        ClientId: req.body.ClientId,
+        SpeciesId: req.body.SpeciesId,
+        BreedId: req.body.BreedId
+    })
+    .then(newAnimal => {
+        res.json(newAnimal)
     })
     .catch(err=>{
         console.log(err)
