@@ -11,7 +11,7 @@ app.use(cors({
 }))
 const PORT = process.env.PORT || 3001;
 
-const { User, Role, Client, Animal, Species, Breed, Clinic, Allergy, Allergyjoins, Inventory, Unit, Inventoryitems, Inventoryjoin, Apiuser} = require("./models")
+const { User, Role, Client, Animal, Species, Breed, Clinic, Allergy, Allergyjoins, Inventory, Unit, Inventoryitems, Inventoryjoin, Apiuser, Appt} = require("./models")
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
