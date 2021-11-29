@@ -16,8 +16,15 @@ Appt.init({
         type: DataTypes.DATE,
         allowNull: false
     },
-    customField: {
+    notes: {
         type: DataTypes.TEXT
+    },
+    rRule: {
+        type: DataTypes.TEXT
+    },
+    allDay: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
     }
 },
 {
