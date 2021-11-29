@@ -8,11 +8,11 @@ Appt.init({
         type: DataTypes.TEXT,
         allowNull: false
     },
-    start_date: {
+    startDate: {
         type: DataTypes.DATE,
         allowNull: false
     },
-    end_date: {
+    endDate: {
         type: DataTypes.DATE,
         allowNull: false
     },
