@@ -4,6 +4,10 @@ const {Appt, Animal, Species, Breed} = require("../../models")
 const tokenAuth = require("../../middleware/tokenAuth")
 
 router.get("/",(req,res)=>{
+    if(!req.session.user){
+        res.redirect("/")
+        return
+    }
     Appt.findAll({
         include:[Animal] 
     })

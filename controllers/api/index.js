@@ -6,6 +6,7 @@ const animalRoutes = require("./animal-routes")
 const clinicRoutes = require("./clinic-routes")
 const inventoryRoutes = require("./inventory-routes")
 const apptRoutes = require("./appt-routes")
+const apiUserRoutes = require("./apiuser-routes")
 
 router.use("/users",userRoutes)
 router.use("/roles",roleRoutes)
@@ -14,5 +15,6 @@ router.use("/animals",animalRoutes)
 router.use("/clinics",clinicRoutes)
 router.use("/inventory",inventoryRoutes)
 router.use("/appointments",apptRoutes)
+router.use("/apiuser",apiUserRoutes)
 
 module.exports = router

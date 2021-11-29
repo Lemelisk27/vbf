@@ -4,6 +4,10 @@ const {Role} = require("../../models")
 const sequelize = require('../../config/connection')
 
 router.get("/",(req,res)=>{
+    if(!req.session.user){
+        res.redirect("/")
+        return
+    }
     Role.findAll()
     .then(roleData=>{
         res.json(roleData)

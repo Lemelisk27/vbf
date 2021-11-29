@@ -1,59 +1,39 @@
 const express = require('express');
 const router = express.Router();
-const {User,Role,Clinic} = require("../../models")
+const {Apiuser} = require("../../models")
 const sequelize = require('../../config/connection')
 const bcrypt = require("bcrypt")
-const jwt = require("jsonwebtoken")
-
-router.get("/",(req,res)=>{
-    if(!req.session.user){
-        res.redirect("/")
-        return
-    }
-    User.findAll({
-        include:[Role, Clinic]
-    })
-    .then(userData=>{
-        res.json(userData)
-    })
-    .catch(err=>{
-        console.log(err)
-        res.status(500).json(err)
-    })
-})
 
 router.post("/login", (req,res) => {
-    User.findOne({
+    Apiuser.findOne({
         where: {
             username: req.body.username
         }
     })
-    .then(foundUser =>{
+    .then(foundUser=>{
         if(!foundUser) {
             res.status(401).json({Message:"Incorrect Username or Password"})
         }
         else if(bcrypt.compareSync(req.body.password,foundUser.password)) {
-            const token = jwt.sign({
+            req.session.user = {
                 username:foundUser.username,
                 id:foundUser.id
-            },
-            process.env.JWT_SECRET
-            ,{
-                expiresIn:"2h"
-            })
-            res.json({
-                token:token,
-                user:foundUser
-            })
+            }
+            res.json(foundUser)
         }
         else {
             res.status(401).json({Message: "Incorrect Username or Password"})
         }
     })
-    .catch(err =>{
+    .catch(err=>{
         console.log(err)
         res.status(500).json({Message: "An Error Occured", err:err})
     })
+})
+
+router.get("/logout",(req,res)=>{
+    req.session.destroy()
+    res.redirect("/")
 })
 
 module.exports = router

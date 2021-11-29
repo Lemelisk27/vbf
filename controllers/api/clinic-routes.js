@@ -4,6 +4,10 @@ const {Clinic} = require("../../models")
 const sequelize = require('../../config/connection')
 
 router.get("/",(req,res)=>{
+    if(!req.session.user){
+        res.redirect("/")
+        return
+    }
     Clinic.findAll()
     .then(clinicData=>{
         res.json(clinicData)

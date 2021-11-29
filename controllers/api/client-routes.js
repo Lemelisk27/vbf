@@ -5,6 +5,10 @@ const sequelize = require('../../config/connection')
 const tokenAuth = require("../../middleware/tokenAuth")
 
 router.get("/",(req,res)=>{
+    if(!req.session.user){
+        res.redirect("/")
+        return
+    }
     Client.findAll({
         include:[Animal,Clinic]
     })

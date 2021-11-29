@@ -4,6 +4,10 @@ const {Inventory,Inventoryitems,Unit} = require("../../models")
 const sequelize = require('../../config/connection')
 
 router.get("/",(req,res)=>{
+    if(!req.session.user){
+        res.redirect("/")
+        return
+    }
     Inventory.findAll({
         attributes: {
             exclude: ["id","ClinicId"]

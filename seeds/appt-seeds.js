@@ -238,6 +238,22 @@ const apptData = [
         endDate: new Date(2021, 11, 1, 12, 15),
         notes: "Annual Exam",
         AnimalId: 14
+    },
+    {
+        id: 31,
+        title: "Test Appt First",
+        startDate: new Date(2021, 9, 1, 11, 15),
+        endDate: new Date(2021, 9, 1, 12, 15),
+        notes: "Test Appt",
+        AnimalId: 10
+    },
+    {
+        id: 32,
+        title: "Test Appt Second",
+        startDate: new Date(2021, 8, 1, 11, 15),
+        endDate: new Date(2021, 8, 1, 12, 15),
+        notes: "Test Appt Second",
+        AnimalId: 10
     }
 ]
 
