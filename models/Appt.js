@@ -16,7 +16,7 @@ Appt.init({
         type: DataTypes.DATE,
         allowNull: false
     },
-    notes: {
+    customField: {
         type: DataTypes.TEXT
     }
 },
