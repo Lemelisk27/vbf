@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const {Animal,Species,Breed,Allergy,Client} = require("../../models")
+const {Animal,Species,Breed,Allergy,Client,Appt} = require("../../models")
 const sequelize = require('../../config/connection')
 const tokenAuth = require("../../middleware/tokenAuth")
+const { Op } = require("sequelize")
 
 router.get("/",(req,res)=>{
     if(!req.session.user){
@@ -10,7 +11,38 @@ router.get("/",(req,res)=>{
         return
     }
     Animal.findAll({
-        include:[Species,Breed,Allergy]
+        include:[{
+            model: Species
+        },
+        {
+            model: Breed
+        },
+        {
+            model: Allergy
+        },
+        {
+            model: Appt,
+            as: "prevAppt",
+            where: {
+                startDate: {
+                    [Op.lt]: new Date()
+                }
+            },
+            attributes: [[sequelize.fn('date_format', sequelize.col('startDate'), '%m-%d-%Y'), 'lastAppt']],
+            order: [["startDate", "DESC"]],
+            limit: 1
+        },
+        {
+            model: Appt,
+            where: {
+                startDate: {
+                    [Op.gt]: new Date()
+                }
+            },
+            attributes: [[sequelize.fn('date_format', sequelize.col('startDate'), '%m-%d-%Y'), 'nextAppt']],
+            order: [["startDate", "ASC"]],
+            limit: 1
+        }]
     })
     .then(animalData=>{
         res.json(animalData)
@@ -77,6 +109,29 @@ router.get("/all", tokenAuth, (req, res) => {
         {
             model: Client,
             attributes: [[sequelize.fn("concat", sequelize.col('first_name'), " ", sequelize.col('last_name')), "client"], "phone"]
+        },
+        {
+            model: Appt,
+            as: "prevAppt",
+            where: {
+                startDate: {
+                    [Op.lt]: new Date()
+                }
+            },
+            attributes: [[sequelize.fn('date_format', sequelize.col('startDate'), '%m-%d-%Y'), 'lastAppt']],
+            order: [["startDate", "DESC"]],
+            limit: 1
+        },
+        {
+            model: Appt,
+            where: {
+                startDate: {
+                    [Op.gt]: new Date()
+                }
+            },
+            attributes: [[sequelize.fn('date_format', sequelize.col('startDate'), '%m-%d-%Y'), 'nextAppt']],
+            order: [["startDate", "ASC"]],
+            limit: 1
         }]
     })
     .then(animals=>{

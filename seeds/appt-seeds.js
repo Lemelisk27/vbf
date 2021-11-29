@@ -1,9 +1,11 @@
 const {Appt} = require("../models")
 
 const buildAppts = () => {
+    const preMonth = 10
+    const currMonth = 11
+    const nextMonth = 0
     const apptNbr = 60
     const pets = 14
-    const month = 11
     const days = 31
     const year = 2021
     const offset = 8
@@ -22,8 +24,42 @@ const buildAppts = () => {
         const minIndex = Math.floor(Math.random() * min.length)
         const tempObj = {
             title: titles[titleIndex],
-            startDate: new Date(year, month, day, hour, min[minIndex]),
-            endDate: new Date(year, month, day, endhour, min[minIndex]),
+            startDate: new Date(year, preMonth, day, hour, min[minIndex]),
+            endDate: new Date(year, preMonth, day, endhour, min[minIndex]),
+            notes: notes[noteIndex],
+            AnimalId: petId
+        }
+        apptData.push(tempObj)
+    }
+    for (let i = 0; i < apptNbr; i++) {
+        const petId = Math.floor(Math.random() * pets + 1)
+        const day = Math.floor(Math.random() * days)
+        const hour = Math.random() * (18 - 8) + 8 + offset
+        const endhour = hour + 1
+        const titleIndex = Math.floor(Math.random() * titles.length)
+        const noteIndex = Math.floor(Math.random() * notes.length)
+        const minIndex = Math.floor(Math.random() * min.length)
+        const tempObj = {
+            title: titles[titleIndex],
+            startDate: new Date(year, currMonth, day, hour, min[minIndex]),
+            endDate: new Date(year, currMonth, day, endhour, min[minIndex]),
+            notes: notes[noteIndex],
+            AnimalId: petId
+        }
+        apptData.push(tempObj)
+    }
+    for (let i = 0; i < apptNbr; i++) {
+        const petId = Math.floor(Math.random() * pets + 1)
+        const day = Math.floor(Math.random() * days)
+        const hour = Math.random() * (18 - 8) + 8 + offset
+        const endhour = hour + 1
+        const titleIndex = Math.floor(Math.random() * titles.length)
+        const noteIndex = Math.floor(Math.random() * notes.length)
+        const minIndex = Math.floor(Math.random() * min.length)
+        const tempObj = {
+            title: titles[titleIndex],
+            startDate: new Date(2022, nextMonth, day, hour, min[minIndex]),
+            endDate: new Date(2022, nextMonth, day, endhour, min[minIndex]),
             notes: notes[noteIndex],
             AnimalId: petId
         }

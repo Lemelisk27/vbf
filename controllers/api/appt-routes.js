@@ -9,7 +9,8 @@ router.get("/",(req,res)=>{
         return
     }
     Appt.findAll({
-        include:[Animal] 
+        include:[Animal],
+        order:["startDate"]
     })
     .then(apptData=>{
         res.json(apptData)

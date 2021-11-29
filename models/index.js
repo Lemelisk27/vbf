@@ -82,6 +82,10 @@ Animal.hasMany(Appt,{
     onDelete: "CASCADE"
 })
 
+Animal.hasMany(Appt,{
+    as: "prevAppt"
+})
+
 Appt.belongsTo(Animal)
 
 module.exports={
