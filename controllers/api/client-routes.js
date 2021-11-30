@@ -65,4 +65,19 @@ router.post("/", tokenAuth, (req,res) => {
     })
 })
 
+router.get("/:id", tokenAuth, (req,res) => {
+    Client.findOne({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(client=>{
+        res.json(client)
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message: "An error Occured", err:err})
+    })
+})
+
 module.exports = router

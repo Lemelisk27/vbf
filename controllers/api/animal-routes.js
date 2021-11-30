@@ -108,7 +108,7 @@ router.get("/all", tokenAuth, (req, res) => {
         },
         {
             model: Client,
-            attributes: [[sequelize.fn("concat", sequelize.col('first_name'), " ", sequelize.col('last_name')), "client"], "phone"]
+            attributes: ["id", [sequelize.fn("concat", sequelize.col('first_name'), " ", sequelize.col('last_name')), "client"], "phone"]
         },
         {
             model: Appt,
