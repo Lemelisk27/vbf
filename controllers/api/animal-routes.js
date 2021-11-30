@@ -170,4 +170,32 @@ router.post("/", tokenAuth, (req, res) => {
     })
 })
 
+router.get("/:id", tokenAuth, (req, res) => {
+    Animal.findOne({
+        where: {
+            id: req.params.id
+        },
+        attributes: ["name", [sequelize.fn('date_format', sequelize.col('birthdate'), '%m-%d-%Y'), 'birthdate'], "color", "gender", "marks", "description", "img", "warn"],
+        include: [{
+            model: Allergy,
+            attributes: ["id", "alergy_name"]
+        },
+        {
+            model: Species,
+            attributes: [["name", "species"]]
+        },
+        {
+            model: Breed,
+            attributes: [["name", "breed"]]
+        }]
+    })
+    .then(animal=>{
+        res.json(animal)
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message: "An Error Occured", err:err})
+    })
+})
+
 module.exports = router
