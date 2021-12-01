@@ -50,11 +50,20 @@ const userData = [
     {
         id: 6,
         first_name: "Class",
-        last_name: "Test",
-        username: "ctest",
+        last_name: "Admin",
+        username: "cadmin",
         password: "password",
         admin: true,
         RoleId: 1,
+        ClinicId: 1
+    },
+    {
+        id: 7,
+        first_name: "Class",
+        last_name: "User",
+        username: "cuser",
+        password: "password",
+        RoleId: 3,
         ClinicId: 1
     }
 ]
