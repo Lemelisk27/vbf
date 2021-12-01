@@ -35,10 +35,7 @@ Client.init({
         }
     },
     phone: {
-        type: DataTypes.STRING,
-        validate:{
-            len:[10]
-        }
+        type: DataTypes.STRING
     }
 },
 {
