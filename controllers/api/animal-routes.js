@@ -228,4 +228,19 @@ router.put("/", tokenAuth, (req, res) => {
     })
 })
 
+router.delete("/:id", tokenAuth, (req,res) => {
+    Animal.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(deletedAnimal=>{
+        res.json(deletedAnimal)
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message: "An Error Occured", err:err})
+    })
+})
+
 module.exports = router
