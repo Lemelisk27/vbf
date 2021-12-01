@@ -46,6 +46,16 @@ const userData = [
         password: "password",
         RoleId: 3,
         ClinicId: 1
+    },
+    {
+        id: 6,
+        first_name: "Class",
+        last_name: "Test",
+        username: "ctest",
+        password: "password",
+        admin: true,
+        RoleId: 1,
+        ClinicId: 1
     }
 ]
 
