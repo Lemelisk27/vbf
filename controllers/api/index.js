@@ -7,6 +7,7 @@ const clinicRoutes = require("./clinic-routes")
 const inventoryRoutes = require("./inventory-routes")
 const apptRoutes = require("./appt-routes")
 const apiUserRoutes = require("./apiuser-routes")
+const allergyRoutes = require("./allergy-routes")
 
 router.use("/users",userRoutes)
 router.use("/roles",roleRoutes)
@@ -16,5 +17,6 @@ router.use("/clinics",clinicRoutes)
 router.use("/inventory",inventoryRoutes)
 router.use("/appointments",apptRoutes)
 router.use("/apiuser",apiUserRoutes)
+router.use("/allergies",allergyRoutes)
 
 module.exports = router
