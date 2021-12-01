@@ -120,6 +120,18 @@ const clientData = [
         email: "Artemidoros@Karga.com",
         phone: "425-555-1235",
         ClinicId: 1
+    },
+    {
+        id: 11,
+        first_name: "Zach",
+        last_name: "Smith",
+        street: "23403 SE 262nd ST",
+        city: "Maple Valley",
+        state: "WA",
+        zip: "98038",
+        email: "Lemelisk27@gmail.com",
+        phone: "425-698-5340",
+        ClinicId: 1
     }
 ]
 

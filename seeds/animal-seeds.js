@@ -181,6 +181,19 @@ const animalData = [
         gender: "Male",
         description: "Good Doggie",
         img: "https://res.cloudinary.com/coder-mingle/image/upload/v1637019776/portfolio/70_bm9zhj.jpg"
+    },
+    {
+        id: 15,
+        name: "Belle",
+        birthdate: "2011-04-15",
+        ClientId: 11,
+        SpeciesId: 1,
+        BreedId: 51,
+        color: "Redish Brown",
+        gender: "Spayed Female",
+        marks: "Wonky Leg",
+        description: "The creator's dog.",
+        img: "https://res.cloudinary.com/coder-mingle/image/upload/v1638352603/portfolio/IMG_0692_x4x5ar.jpg"
     }
 ]
 

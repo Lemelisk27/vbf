@@ -5,7 +5,7 @@ const buildAppts = () => {
     const currMonth = 11
     const nextMonth = 0
     const apptNbr = 60
-    const pets = 14
+    const pets = 15
     const days = 31
     const year = 2021
     const offset = 8

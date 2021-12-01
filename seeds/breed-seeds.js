@@ -250,6 +250,16 @@ const breedData = [
         id: 50,
         name: "Water dragon",
         SpeciesId: 4
+    },
+    {
+        id: 51,
+        name: "Mixed Dog",
+        SpeciesId: 1
+    },
+    {
+        id: 52,
+        name: "Mixed Cat",
+        SpeciesId: 2
     }
 ]
 
