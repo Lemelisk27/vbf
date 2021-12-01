@@ -26,7 +26,9 @@ router.get("/",(req,res)=>{
 })
 
 router.get("/items", tokenAuth, (req, res) => {
-    Inventoryitems.findAll()
+    Inventoryitems.findAll({
+        order: ["item_name"]
+    })
     .then(invItems=>{
         if(invItems) {
             res.json(invItems)

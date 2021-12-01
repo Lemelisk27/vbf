@@ -35,6 +35,9 @@ Clinic.init({
         validate: {
             isEmail: true
         }
+    },
+    tax_rate: {
+        type: DataTypes.DECIMAL(10,2)
     }
 },
 {

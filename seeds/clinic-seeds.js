@@ -9,7 +9,8 @@ const clinicData = [
         state: "WA",
         zip: "98045",
         phone: "425-555-1234",
-        email: "LocalVet@vet.vet"
+        email: "LocalVet@vet.vet",
+        tax_rate: 6.5
     }
 ]
 
