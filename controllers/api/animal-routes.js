@@ -159,7 +159,6 @@ router.post("/", tokenAuth, (req, res) => {
         ClientId: req.body.ClientId,
         SpeciesId: req.body.SpeciesId,
         BreedId: req.body.BreedId,
-        ClinicId: 1
     })
     .then(newAnimal => {
         res.json(newAnimal)
@@ -175,7 +174,7 @@ router.get("/:id", tokenAuth, (req, res) => {
         where: {
             id: req.params.id
         },
-        attributes: ["name", [sequelize.fn('date_format', sequelize.col('birthdate'), '%m-%d-%Y'), 'birthdate'], "color", "gender", "marks", "description", "img", "warn"],
+        attributes: ["id", "name", [sequelize.fn('date_format', sequelize.col('birthdate'), '%m-%d-%Y'), 'birthdate'], "color", "gender", "marks", "description", "img", "warn", ["birthdate", "date"], "ClientId", "SpeciesId", "BreedId"],
         include: [{
             model: Allergy,
             attributes: ["id", "alergy_name"]
@@ -187,10 +186,41 @@ router.get("/:id", tokenAuth, (req, res) => {
         {
             model: Breed,
             attributes: [["name", "breed"]]
+        },
+        {
+            model: Client,
+            attributes: ["id", [sequelize.fn("concat", sequelize.col('first_name'), " ", sequelize.col('last_name')), "full_name"]]
         }]
     })
     .then(animal=>{
         res.json(animal)
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message: "An Error Occured", err:err})
+    })
+})
+
+router.put("/", tokenAuth, (req, res) => {
+    Animal.update({
+        name: req.body.name,
+        birthdate: req.body.birthdate,
+        color: req.body.color,
+        gender: req.body.gender,
+        marks: req.body.marks,
+        description: req.body.description,
+        ClientId: req.body.ClientId,
+        SpeciesId: req.body.SpeciesId,
+        BreedId: req.body.BreedId,
+        warn: req.body.warn
+    },
+    {
+        where: {
+            id: req.body.id
+        }
+    })
+    .then(updateAnimal=>{
+        res.json(updateAnimal)
     })
     .catch(err=>{
         console.log(err)

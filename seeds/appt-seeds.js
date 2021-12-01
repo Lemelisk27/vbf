@@ -8,7 +8,7 @@ const buildAppts = () => {
     const pets = 14
     const days = 31
     const year = 2021
-    const offset = 0
+    const offset = 8
     const titles = ["Nail Trim", "Annual Exam", "Lump Eval", "Vaccines", "Post-Op Checkup", "Pre-Op Checkup", "Surgery: Spay/Nuter"]
     const notes = ["Really needs this", "Make sure nose is cold and wet", "Lump isn't anything but owner wants it checked."]
     const min = [0,15,30,45]
