@@ -44,6 +44,23 @@ router.get("/items", tokenAuth, (req, res) => {
     })
 })
 
+router.put("/items", tokenAuth, (req, res) => {
+    Inventoryitems.update({
+        qty: req.body.qty
+    },
+    {
+        where: {
+            id: req.body.id
+        }
+    })
+    .then(updatedItem=>{
+        res.json(updatedItem)
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+})
+
 router.get("/categories", tokenAuth, (req, res) => {
     Inventory.findAll({
         order: ["category_name"]
