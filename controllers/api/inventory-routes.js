@@ -27,11 +27,30 @@ router.get("/",(req,res)=>{
 
 router.get("/items", tokenAuth, (req, res) => {
     Inventoryitems.findAll({
-        order: ["item_name"]
+        order: ["item_name"],
+        include: [Inventory, Unit]
     })
     .then(invItems=>{
         if(invItems) {
             res.json(invItems)
+        }
+        else {
+            res.status(404).json({Message: "Nothing Found"})
+        }
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message: "An Error Occured", err:err})
+    })
+})
+
+router.get("/categories", tokenAuth, (req, res) => {
+    Inventory.findAll({
+        order: ["category_name"]
+    })
+    .then(cat=>{
+        if (cat) {
+            res.json(cat)
         }
         else {
             res.status(404).json({Message: "Nothing Found"})

@@ -85,6 +85,11 @@ const inventoryJoinData = [
         id: 17,
         InventoryId: 6,
         InventoryitemsId: 17
+    },
+    {
+        id: 18,
+        InventoryId: 6,
+        InventoryitemsId: 18
     }
 ]
 
