@@ -125,12 +125,12 @@ const clientData = [
         id: 11,
         first_name: "Zach",
         last_name: "Smith",
-        street: "23403 SE 262nd ST",
-        city: "Maple Valley",
+        street: "1234 Smith Blvd",
+        city: "Someplace",
         state: "WA",
-        zip: "98038",
-        email: "Lemelisk27@gmail.com",
-        phone: "425-698-5340",
+        zip: "98045",
+        email: "Zach@Smith.com",
+        phone: "425-555-5555",
         ClinicId: 1
     }
 ]

@@ -1,7 +1,7 @@
 # Vet's Best Friend (VBF) - Back End
 ![license badge](https://img.shields.io/badge/license-MIT-blue)
 ## Description
-A vet management app back end
+This it the back end for a vet management app. The site allows users to track their clients, patients, appointments, and inventory. The URL from the front end of the site can be found below.
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
@@ -9,17 +9,28 @@ A vet management app back end
 - [License](#license)
 ## Installation
 Required Dependencies:
-- Bcrypt
-- Compression
-- CORS
-- Express
-- Jsonwebtoken
-- Dotenv
-- Mysql2
-- Sequelize
+- bcrypt
+- compression
+- connect-session-sequelize
+- cors
+- dotenv
+- express
+- express-session
+- jsonwebtoken
+- mysql2
+- sequelize
 ## Usage
-Back End Site [Vet's Best Friend API](https://vetbestfriend-back.herokuapp.com/)
 Front End Site - [Vet's Best Friend](https://vetbestfriend.herokuapp.com/)
+- Admin User:  
+    - Username: cadmin  
+    - Password: password  
+- User:
+    - Username: cuser
+    - Password: password
+  
+Back End Site [Vet's Best Friend API](https://vetbestfriend-back.herokuapp.com/)  
+Front End GitHub [Vet's Best Friend API - GitHub](https://github.com/Lemelisk27/vbf-front)  
+Back End GitHub [Vet's Best Friend API - GitHub](https://github.com/Lemelisk27/vbf-back)
 ## Credits
 Zach Smith - [GitHub Profile](https://github.com/Lemelisk27@gmail.com)  
 ## License
