@@ -33,6 +33,10 @@ Front End Site - [Vet's Best Friend](https://vetbestfriend.herokuapp.com/)
 Back End Site [Vet's Best Friend API](https://vetbestfriend-back.herokuapp.com/)  
 Front End GitHub [Vet's Best Friend API - GitHub](https://github.com/Lemelisk27/vbf-front)  
 Back End GitHub [Vet's Best Friend API - GitHub](https://github.com/Lemelisk27/vbf-back)
+  
+![Landing Page](public/images/landing.png)
+![Patient Page](public/images/patients.png)  
+![Client Page](public/images/clients.png)  
 ## Credits
 Zach Smith - [GitHub Profile](https://github.com/Lemelisk27@gmail.com)  
 ## License
