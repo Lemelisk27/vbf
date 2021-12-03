@@ -13,6 +13,8 @@ const Inventoryitems = require("./InventoryItems")
 const Inventoryjoin = require("./Inventoryjoin")
 const Apiuser = require("./ApiUser")
 const Appt = require("./Appt")
+const Invoice = require("./Invoice")
+const Invoiceitems = require("./InvoiceItems")
 
 User.belongsTo(Role)
 
@@ -88,6 +90,16 @@ Animal.hasMany(Appt,{
 
 Appt.belongsTo(Animal)
 
+Client.hasMany(Invoice)
+
+Invoice.belongsTo(Client)
+
+Invoice.hasMany(Invoiceitems, {
+    onDelete: "CASCADE"
+})
+
+Invoiceitems.belongsTo(Invoice)
+
 module.exports={
     User,
     Role,
@@ -103,5 +115,7 @@ module.exports={
     Inventoryitems,
     Inventoryjoin,
     Apiuser,
-    Appt
+    Appt,
+    Invoice,
+    Invoiceitems
 }

@@ -31,7 +31,7 @@ Front End Site - [Vet's Best Friend](https://vetbestfriend.herokuapp.com/)
     - Password: password
   
 Back End Site [Vet's Best Friend API](https://vetbestfriend-back.herokuapp.com/)  
-Front End GitHub [Vet's Best Friend API - GitHub](https://github.com/Lemelisk27/vbf-front)  
+Front End GitHub [Vet's Best Friend - GitHub](https://github.com/Lemelisk27/vbf-front)  
 Back End GitHub [Vet's Best Friend API - GitHub](https://github.com/Lemelisk27/vbf-back)
   
 ![Landing Page](public/images/landing.png)

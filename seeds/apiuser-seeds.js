@@ -5,6 +5,11 @@ const apiUserData = [
         id: 1,
         username: "Lemelisk27",
         password: "password"
+    },
+    {
+        id: 2,
+        username: "cadmin",
+        password: "password"
     }
 ]
 

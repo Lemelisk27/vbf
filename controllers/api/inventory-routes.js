@@ -44,7 +44,7 @@ router.get("/items", tokenAuth, (req, res) => {
     })
 })
 
-router.put("/items", tokenAuth, (req, res) => {
+router.put("/items/qty", tokenAuth, (req, res) => {
     Inventoryitems.update({
         qty: req.body.qty
     },

@@ -8,6 +8,7 @@ const inventoryRoutes = require("./inventory-routes")
 const apptRoutes = require("./appt-routes")
 const apiUserRoutes = require("./apiuser-routes")
 const allergyRoutes = require("./allergy-routes")
+const invoiceRoutes = require("./invoice-routes")
 
 router.use("/users",userRoutes)
 router.use("/roles",roleRoutes)
@@ -18,5 +19,6 @@ router.use("/inventory",inventoryRoutes)
 router.use("/appointments",apptRoutes)
 router.use("/apiuser",apiUserRoutes)
 router.use("/allergies",allergyRoutes)
+router.use("/invoice",invoiceRoutes)
 
 module.exports = router
