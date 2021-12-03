@@ -33,6 +33,32 @@ User.init({
         type: DataTypes.BOOLEAN,
         allowNull: false,
         defaultValue: false
+    },
+    street: {
+        type: DataTypes.TEXT,
+        allowNull: false
+    },
+    city: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    state: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    zip: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+    email: {
+        type: DataTypes.STRING,
+        unique: true,
+        validate:{
+            isEmail: true
+        }
+    },
+    phone: {
+        type: DataTypes.STRING
     }
 },
 {

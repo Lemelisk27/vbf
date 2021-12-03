@@ -4,6 +4,7 @@ const {User,Role,Clinic} = require("../../models")
 const sequelize = require('../../config/connection')
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
+const tokenAuth = require("../../middleware/tokenAuth")
 
 router.get("/",(req,res)=>{
     if(!req.session.user){
@@ -51,6 +52,55 @@ router.post("/login", (req,res) => {
         }
     })
     .catch(err =>{
+        console.log(err)
+        res.status(500).json({Message: "An Error Occured", err:err})
+    })
+})
+
+router.get("/:id", tokenAuth, (req, res)=>{
+    User.findOne({
+        where: {
+            id: req.params.id
+        },
+        include: [Role],
+        attributes: {
+            exclude: ["password"]
+        }
+    })
+    .then(foundUser=>{
+        if (foundUser) {
+            res.json(foundUser)
+        }
+        else {
+            res.status(404).json({Message: "Nothing Found"})
+        }
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message: "An Error Occured", err:err})
+    })
+})
+
+router.put("/", tokenAuth, (req, res)=>{
+    User.update({
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        street: req.body.street,
+        city: req.body.city,
+        state: req.body.state,
+        zip: req.body.zip,
+        email: req.body.email,
+        phone: req.body.phone
+    },
+    {
+        where: {
+            id: req.body.id
+        }
+    })
+    .then(updatedUser=>{
+        res.json(updatedUser)
+    })
+    .catch(err=>{
         console.log(err)
         res.status(500).json({Message: "An Error Occured", err:err})
     })

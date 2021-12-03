@@ -13,7 +13,7 @@ app.use(cors({
 }))
 const PORT = process.env.PORT || 3001;
 
-const { User, Role, Client, Animal, Species, Breed, Clinic, Allergy, Allergyjoins, Inventory, Unit, Inventoryitems, Inventoryjoin, Apiuser, Appt} = require("./models")
+const { User, Role, Client, Animal, Species, Breed, Clinic, Allergy, Allergyjoins, Inventory, Unit, Inventoryitems, Inventoryjoin, Apiuser, Appt, Invoice, Invoiceitems} = require("./models")
 
 app.use(session({
     secret: process.env.SESSION_SECRET,
