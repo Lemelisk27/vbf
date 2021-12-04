@@ -35,4 +35,32 @@ router.get("/all", tokenAuth, (req, res) => {
     })
 })
 
+router.put("/", tokenAuth, (req, res) => {
+    Clinic.update({
+        name: req.body.name,
+        street: req.body.street,
+        city: req.body.city,
+        state: req.body.state,
+        zip: req.body.zip,
+        email: req.body.email,
+        img: req.body.img,
+        phone: req.body.phone,
+        site: req.body.site,
+        state: req.body.state,
+        tax_rate: req.body.tax_rate
+    },
+    {
+        where: {
+            id: req.body.id
+        }
+    })
+    .then(updatedClinic=>{
+        res.json(updatedClinic)
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message: "An Error Occured", err:err})
+    })
+})
+
 module.exports = router
