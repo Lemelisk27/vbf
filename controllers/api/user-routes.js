@@ -106,4 +106,40 @@ router.put("/", tokenAuth, (req, res)=>{
     })
 })
 
+router.post("/change", tokenAuth, (req, res)=>{
+    let updatedPassword = ""
+    updatedPassword = bcrypt.hashSync(req.body.newPassword,10)
+    User.findOne({
+        where: {
+            id: req.body.id
+        }
+    })
+    .then(foundUser=>{
+        if (bcrypt.compareSync(req.body.password,foundUser.password)) {
+            User.update({
+                password: updatedPassword
+            },
+            {
+                where: {
+                    id: req.body.id
+                }
+            })
+            .then(updatedPwd=>{
+                res.json(updatedPwd)
+            })
+            .catch(err=>{
+                console.log(err)
+                res.status(500).json({Message: "An Error Occured", err:err})
+            })
+        }
+        else {
+            res.status(401).json({Message: "Incorrect Username or Password"})
+        }
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message: "An Error Occured", err:err})
+    })
+})
+
 module.exports = router

@@ -10,7 +10,8 @@ const clinicData = [
         zip: "98045",
         phone: "425-555-1234",
         email: "LocalVet@vet.vet",
-        tax_rate: 6.5
+        tax_rate: 6.5,
+        img: "https://res.cloudinary.com/coder-mingle/image/upload/v1638569076/portfolio/clinic_logo_rvoi8q.png"
     }
 ]
 

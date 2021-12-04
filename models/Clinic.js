@@ -38,6 +38,9 @@ Clinic.init({
     },
     tax_rate: {
         type: DataTypes.DECIMAL(10,2)
+    },
+    img: {
+        type: DataTypes.TEXT
     }
 },
 {
