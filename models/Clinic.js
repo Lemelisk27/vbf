@@ -41,6 +41,9 @@ Clinic.init({
     },
     img: {
         type: DataTypes.TEXT
+    },
+    site: {
+        type: DataTypes.TEXT
     }
 },
 {

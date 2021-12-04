@@ -11,7 +11,8 @@ const clinicData = [
         phone: "425-555-1234",
         email: "LocalVet@vet.vet",
         tax_rate: 6.5,
-        img: "https://res.cloudinary.com/coder-mingle/image/upload/v1638569076/portfolio/clinic_logo_rvoi8q.png"
+        img: "https://res.cloudinary.com/coder-mingle/image/upload/v1638569076/portfolio/clinic_logo_rvoi8q.png",
+        site: "https://vetbestfriend.herokuapp.com"
     }
 ]
 
