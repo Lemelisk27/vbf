@@ -10,9 +10,6 @@ router.get("/",(req,res)=>{
         return
     }
     Inventory.findAll({
-        attributes: {
-            exclude: ["id","ClinicId"]
-        },
         include: [{model: Inventoryitems,
             include: [Unit]
         }]
@@ -72,6 +69,20 @@ router.get("/categories", tokenAuth, (req, res) => {
         else {
             res.status(404).json({Message: "Nothing Found"})
         }
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message: "An Error Occured", err:err})
+    })
+})
+
+router.post("/categories", tokenAuth, (req, res) => {
+    Inventory.create({
+        category_name: req.body.category_name,
+        ClinicId: req.body.ClinicId
+    })
+    .then(newCategory=>{
+        res.json(newCategory)
     })
     .catch(err=>{
         console.log(err)
