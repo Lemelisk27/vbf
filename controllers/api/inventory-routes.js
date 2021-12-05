@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {Inventory,Inventoryitems,Unit} = require("../../models")
+const {Inventory,Inventoryitems,Unit,Inventoryjoin} = require("../../models")
 const sequelize = require('../../config/connection')
 const tokenAuth = require("../../middleware/tokenAuth")
 
@@ -58,6 +58,24 @@ router.put("/items/qty", tokenAuth, (req, res) => {
     })
 })
 
+router.put("/items/category", tokenAuth, (req, res) => {
+    Inventoryjoin.update({
+        InventoryId: req.body.newId
+    },
+    {
+        where: {
+            InventoryId: req.body.id
+        }
+    })
+    .then(updatedItems=>{
+        res.json(updatedItems)
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message: "An Error Occured", err:err})
+    })
+})
+
 router.get("/categories", tokenAuth, (req, res) => {
     Inventory.findAll({
         order: ["category_name"]
@@ -83,6 +101,39 @@ router.post("/categories", tokenAuth, (req, res) => {
     })
     .then(newCategory=>{
         res.json(newCategory)
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message: "An Error Occured", err:err})
+    })
+})
+
+router.put("/categories", tokenAuth, (req, res) => {
+    Inventory.update({
+        category_name: req.body.category_name
+    },
+    {
+        where: {
+            id: req.body.id
+        }
+    })
+    .then(updatedCategory=>{
+        res.json(updatedCategory)
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message: "An Error Occured", err:err})
+    })
+})
+
+router.delete("/categories/:id", tokenAuth, (req, res) => {
+    Inventory.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(deletedCategory=>{
+        res.json(deletedCategory)
     })
     .catch(err=>{
         console.log(err)
