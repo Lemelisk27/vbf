@@ -23,6 +23,22 @@ router.get("/",(req,res)=>{
     })
 })
 
+router.get("/all", tokenAuth, (req, res) => {
+    User.findAll()
+    .then(userData=>{
+        if (userData) {
+            res.json(userData)
+        }
+        else {
+            res.status(404).json({Message: "Nothing Found"})
+        }
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message: "An Error Occured", err:err})
+    })
+})
+
 router.post("/login", (req,res) => {
     User.findOne({
         where: {
@@ -139,6 +155,33 @@ router.post("/change", tokenAuth, (req, res)=>{
     .catch(err=>{
         console.log(err)
         res.status(500).json({Message: "An Error Occured", err:err})
+    })
+})
+
+router.post("/", tokenAuth, (req, res)=>{
+    let updatedPassword = ""
+    updatedPassword = bcrypt.hashSync(req.body.password,10)
+    User.create({
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        street: req.body.street,
+        city: req.body.city,
+        state: req.body.state,
+        zip: req.body.zip,
+        email: req.body.email,
+        phone: req.body.phone,
+        admin: req.body.admin,
+        password: updatedPassword,
+        username: req.body.username,
+        ClinicId: req.body.ClinicId,
+        RoleId: req.body.RoleId
+    })
+    .then(newUser=>{
+        res.json(newUser)
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message: "An Error Occurered", err:err})
     })
 })
 
