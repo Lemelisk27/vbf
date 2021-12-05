@@ -21,7 +21,9 @@ router.get("/",(req,res)=>{
 
 
 router.get("/all", tokenAuth, (req,res)=>{
-    Role.findAll()
+    Role.findAll({
+        order: ["title"]
+    })
     .then(roles=>{
         if (roles) {
             res.json(roles)
@@ -29,6 +31,52 @@ router.get("/all", tokenAuth, (req,res)=>{
         else {
             res.status(404).json({Message: "Nothing Found"})
         }
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message: "An Error Occured", err:err})
+    })
+})
+
+router.post("/", tokenAuth, (req, res) => {
+    Role.create({
+        title: req.body.title
+    })
+    .then(newRole=>{
+        res.json(newRole)
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message: "An Error Occured", err:err})
+    })
+})
+
+router.put("/", tokenAuth, (req, res) => {
+    Role.update({
+        title: req.body.title
+    },
+    {
+        where: {
+            id: req.body.id
+        }
+    })
+    .then(updatedRole=>{
+        res.json(updatedRole)
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message: "An Error Occured", err:err})
+    })
+})
+
+router.delete("/:id", tokenAuth, (req, res) => {
+    Role.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(deletedRole=>{
+        res.json(deletedRole)
     })
     .catch(err=>{
         console.log(err)

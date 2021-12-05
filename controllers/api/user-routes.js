@@ -208,4 +208,22 @@ router.delete("/:id", tokenAuth, (req,res)=>{
     })
 })
 
+router.put("/roles", tokenAuth, (req, res) => {
+    User.update({
+        RoleId: req.body.newId
+    },
+    {
+        where: {
+            RoleId: req.body.id
+        }
+    })
+    .then(updatedUser=>{
+        res.json(updatedUser)
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message: "An Error Occured", err:err})
+    })
+})
+
 module.exports = router
