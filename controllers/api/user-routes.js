@@ -24,7 +24,15 @@ router.get("/",(req,res)=>{
 })
 
 router.get("/all", tokenAuth, (req, res) => {
-    User.findAll()
+    User.findAll({
+        order: ["first_name"],
+        attributes: {
+            include: [
+                [sequelize.fn("concat", sequelize.col('first_name'), " ", sequelize.col('last_name')), "full_name"]
+            ],
+            exclude: ["password"]
+        }
+    })
     .then(userData=>{
         if (userData) {
             res.json(userData)
@@ -106,7 +114,9 @@ router.put("/", tokenAuth, (req, res)=>{
         state: req.body.state,
         zip: req.body.zip,
         email: req.body.email,
-        phone: req.body.phone
+        phone: req.body.phone,
+        admin: req.body.admin,
+        RoleId: req.body.RoleId
     },
     {
         where: {
@@ -159,8 +169,6 @@ router.post("/change", tokenAuth, (req, res)=>{
 })
 
 router.post("/", tokenAuth, (req, res)=>{
-    let updatedPassword = ""
-    updatedPassword = bcrypt.hashSync(req.body.password,10)
     User.create({
         first_name: req.body.first_name,
         last_name: req.body.last_name,
@@ -171,7 +179,7 @@ router.post("/", tokenAuth, (req, res)=>{
         email: req.body.email,
         phone: req.body.phone,
         admin: req.body.admin,
-        password: updatedPassword,
+        password: req.body.password,
         username: req.body.username,
         ClinicId: req.body.ClinicId,
         RoleId: req.body.RoleId
@@ -182,6 +190,21 @@ router.post("/", tokenAuth, (req, res)=>{
     .catch(err=>{
         console.log(err)
         res.status(500).json({Message: "An Error Occurered", err:err})
+    })
+})
+
+router.delete("/:id", tokenAuth, (req,res)=>{
+    User.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(deletedUser=>{
+        res.json(deletedUser)
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message: "An Error Occured", err:err})
     })
 })
 
