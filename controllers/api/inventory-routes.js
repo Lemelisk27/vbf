@@ -261,4 +261,68 @@ router.delete("/items/:id", tokenAuth, (req, res) => {
     })
 })
 
+router.post("/units", tokenAuth, (req, res) => {
+    Unit.create({
+        unit_name: req.body.unit_name
+    })
+    .then(newUnit=>{
+        res.json(newUnit)
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message: "An Error Occured", err:err})
+    })
+})
+
+router.put("/units", tokenAuth, (req, res) => {
+    Unit.update({
+        unit_name: req.body.unit_name
+    },
+    {
+        where: {
+            id: req.body.id
+        }
+    })
+    .then(updatedUnit=>{
+        res.json(updatedUnit)
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message: "An Error Occured", err:err})
+    })
+})
+
+router.put("/units/items", tokenAuth, (req, res) => {
+    Inventoryitems.update({
+        UnitId: req.body.UnitId
+    },
+    {
+        where: {
+            UnitId: req.body.id
+        }
+    })
+    .then(updatedItems=>{
+        res.json(updatedItems)
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message: "An Error Occured", err:err})
+    })
+})
+
+router.delete("/units/:id", tokenAuth, (req, res) => {
+    Unit.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(deletedUnit=>{
+        res.json(deletedUnit)
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message: "An Error Occured", err:err})
+    })
+})
+
 module.exports = router
