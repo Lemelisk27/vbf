@@ -243,4 +243,86 @@ router.delete("/:id", tokenAuth, (req,res) => {
     })
 })
 
+router.post("/species", tokenAuth, (req, res) => {
+    Species.create({
+        name: req.body.name
+    })
+    .then(newSpecies=>{
+        res.json(newSpecies)
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message: "An Error Occured", err:err})
+    })
+})
+
+router.put("/species", tokenAuth, (req, res) => {
+    Species.update({
+        name: req.body.name
+    },
+    {
+        where: {
+            id: req.body.id
+        }
+    })
+    .then(updatedSpecies=>{
+        res.json(updatedSpecies)
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message: "An Error Occured", err:err})
+    })
+})
+
+router.put("/species/animals", tokenAuth, (req, res) => {
+    Animal.update({
+        SpeciesId: req.body.SpeciesId
+    },
+    {
+        where: {
+            SpeciesId: req.body.id
+        }
+    })
+    .then(updatedAnimal=>{
+        res.json(updatedAnimal)
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message: "An Error Occured", err:err})
+    })
+})
+
+router.put("/species/breeds", tokenAuth, (req, res) => {
+    Breed.update({
+        SpeciesId: req.body.SpeciesId
+    },
+    {
+        where: {
+            SpeciesId: req.body.id
+        }
+    })
+    .then(updatedBreed=>{
+        res.json(updatedBreed)
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message: "An Error Occured", err:err})
+    })
+})
+
+router.delete("/species/:id", tokenAuth, (req, res) => {
+    Species.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(deletedSpecies=>{
+        res.json(deletedSpecies)
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message: "An Error Occured", err:err})
+    })
+})
+
 module.exports = router
