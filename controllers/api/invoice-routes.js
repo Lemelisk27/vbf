@@ -84,4 +84,48 @@ router.post("/items", tokenAuth, (req, res) => {
     })
 })
 
+router.get("/client/:id", tokenAuth, (req, res) => {
+    Invoice.findAll({
+        where: {
+            ClientId: req.params.id
+        },
+        order: ["date"],
+        attributes: {
+            include: [[sequelize.fn('date_format', sequelize.col('date'), '%m-%d-%Y'), 'for_date']]
+        },
+        include: [Invoiceitems]
+    })
+    .then(foundInvoice=>{
+        if(foundInvoice) {
+            res.json(foundInvoice)
+        }
+        else {
+            res.status(404).json({Message: "Nothing Found"})
+        }
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message: "An Error Occured", err:err})
+    })
+})
+
+router.get("/:id", tokenAuth, (req, res) => {
+    Invoice.findAll({
+        where: {
+            id: req.params.id
+        },
+        attributes: {
+            include: [[sequelize.fn('date_format', sequelize.col('date'), '%m-%d-%Y'), 'for_date']]
+        },
+        include: [Invoiceitems]
+    })
+    .then(foundInvoice=>{
+        res.json(foundInvoice)
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message: "An Error Occured", err:err})
+    })
+})
+
 module.exports = router
