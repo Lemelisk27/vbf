@@ -107,4 +107,50 @@ router.delete("/joins/:id", tokenAuth, (req, res) => {
     })
 })
 
+router.post("/", tokenAuth, (req, res) => {
+    Allergy.create({
+        alergy_name: req.body.alergy_name
+    })
+    .then(newAllergy=>{
+        res.json(newAllergy)
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message: "An Error Occured", err:err})
+    })
+})
+
+router.put("/", tokenAuth, (req, res) => {
+    Allergy.update({
+        alergy_name: req.body.alergy_name
+    },
+    {
+        where: {
+            id: req.body.id
+        }
+    })
+    .then(updatedAllergy=>{
+        res.json(updatedAllergy)
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message: "An Error Occured", err:err})
+    })
+})
+
+router.delete("/:id", tokenAuth, (req, res) => {
+    Allergy.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(deletedAllergy=>{
+        res.json(deletedAllergy)
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({Message: "An Error Occured", err:err})
+    })
+})
+
 module.exports = router
